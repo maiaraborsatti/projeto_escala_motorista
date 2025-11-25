@@ -1,0 +1,166 @@
+// Obs: Script usado em https://dbdiagram.io/
+
+// Definição do Esquema de Banco de Dados: Gerenciamento de Escala de Motoristas
+
+// ===================================
+// 1. ENUMS (Valores Fixos dos Requisitos)
+// ===================================
+
+// RNF - Status Ativo/Inativo para Rotas e Projetos
+Enum StatusGeral {
+    Ativo
+    Inativo
+}
+
+// RF-003 - Tipos de Rota
+Enum TipoRota {
+    City
+    Dritell
+    Highway
+}
+
+// RF-001 - Tipos de Direção
+Enum TipoDriver {
+    Manual
+    Automático
+    Ambos
+}
+
+// RF-005 - Tipos de Ausência
+Enum TipoAusencia {
+    Férias
+    "Ausência Programada"
+}
+
+// RF-007 - Turnos de Trabalho
+Enum TipoTurno {
+    T1 // Turno 1
+    T2 // Turno 2
+}
+
+// RF-006 & RNF-001 - Perfis de Acesso
+Enum NomePerfil {
+    Motorista
+    Líder
+    Administrador
+}
+
+
+// ===================================
+// 2. TABELAS (Entidades)
+// ===================================
+
+// RF-006: Gerenciamento de Usuários e Perfis
+Table PERFIL {
+    Perfil_ID int [pk, increment]
+    Nome NomePerfil [unique, not null]
+}
+
+// RNF-001: Segurança de Acesso
+Table USUARIO {
+    Usuario_ID int [pk, increment]
+    Email varchar(100) [unique, not null]
+    Senha_Hash varchar(255) [not null]
+    Nome varchar(100)
+    Perfil_ID int [not null]
+    Motorista_Chapa varchar(20) // FK para associar ao cadastro se for um Motorista (Pode ser null se for Líder/Admin)
+}
+
+// RF-001: Cadastro de Motoristas
+Table MOTORISTA {
+    Chapa varchar(20) [pk] // Identificação Funcional (PK)
+    Nome varchar(100) [not null]
+    Foto_URL varchar(255)
+    CNH_Numero varchar(20) [unique, not null]
+    CNH_Classe char(2)
+    CNH_Validade date [not null]
+    Pode_Dirigir TipoDriver
+    Status_Disponibilidade varchar(15) [not null] // Ex: Disponível, Em Férias, Em Escala
+}
+
+// RF-005: Gerenciamento de Férias e Ausências
+Table FERIAS_AUSENCIAS {
+    Ausencia_ID int [pk, increment]
+    Data_Inicio date [not null]
+    Data_Fim date [not null]
+    Tipo TipoAusencia [not null]
+    Motorista_Chapa varchar(20) [not null]
+}
+
+// RF-004: Cadastro de Projetos
+Table PROJETO {
+    Projeto_ID int [pk, increment]
+    Nome varchar(100) [unique, not null]
+    Status StatusGeral [not null]
+}
+
+// RF-002: Cadastro de Veículos
+Table VEICULO {
+    Placa varchar(10) [pk] // Placa Mercosul
+    VIN varchar(17) [unique, not null] // Chassi
+    Marca varchar(50)
+    Modelo varchar(50)
+    Tipo_Rota_Exigido TipoRota [not null]
+    Projeto_ID int [not null]
+}
+
+// RF-003: Cadastro de Rotas
+Table ROTA {
+    Rota_ID int [pk, increment]
+    Nome varchar(100) [unique, not null]
+    Tipo TipoRota [not null]
+    Distancia_km decimal(10,2) [not null]
+    Status StatusGeral [not null]
+}
+
+// RF-007: Geração de Escalas (Tabela Fato Central)
+Table ESCALA {
+    Escala_ID int [pk, increment]
+    Data date [not null]
+    Turno TipoTurno [not null]
+    Motorista_Chapa varchar(20) [not null]
+    Veiculo_Placa varchar(10) [not null]
+    Rota_ID int [not null]
+    
+    // Restrição única: Garante que um motorista não pode estar em mais de uma escala no mesmo dia/turno
+    indexes {
+        (Data, Turno, Motorista_Chapa) [unique]
+    }
+}
+
+// RF-008: Logs de Auditoria
+Table LOG_AUDITORIA {
+    Log_ID int [pk, increment]
+    Data_Hora datetime [not null]
+    Acao_Tipo varchar(50) [not null] // Ex: CADASTRO_VEICULO, LOGIN_FALHO, EXCLUSAO_ROTA
+    Descricao_Detalhada text
+    Usuario_ID int [not null]
+}
+
+
+// ===================================
+// 3. RELACIONAMENTOS (Referencias)
+// ===================================
+
+// Rastreabilidade: 1 perfil para N usuários (1:N)
+Ref: USUARIO.Perfil_ID > PERFIL.Perfil_ID
+
+// Rastreabilidade: 1 motorista (cadastro) pode ser 0 ou 1 usuário (1:1 opcional)
+Ref: MOTORISTA.Chapa - USUARIO.Motorista_Chapa
+
+// Rastreabilidade: 1 motorista tem N períodos de ausência (1:N)
+Ref: FERIAS_AUSENCIAS.Motorista_Chapa > MOTORISTA.Chapa
+
+// Rastreabilidade: 1 projeto para N veículos (1:N)
+Ref: VEICULO.Projeto_ID > PROJETO.Projeto_ID
+
+// Rastreabilidade ESCALA (Tabela Fato)
+// 1 motorista está em N escalas (1:N)
+Ref: ESCALA.Motorista_Chapa > MOTORISTA.Chapa 
+// 1 veículo está em N escalas (1:N)
+Ref: ESCALA.Veiculo_Placa > VEICULO.Placa
+// 1 rota está em N escalas (1:N)
+Ref: ESCALA.Rota_ID > ROTA.Rota_ID
+
+// Rastreabilidade: 1 usuário gera N logs (1:N)
+Ref: LOG_AUDITORIA.Usuario_ID > USUARIO.Usuario_ID

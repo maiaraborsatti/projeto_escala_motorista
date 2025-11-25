@@ -47,16 +47,20 @@ Este projeto segue as boas práticas de Engenharia de Software, incluindo:
  │   ├── requisitos.md           # Documento de requisitos (RFs e RNFs)
  │   ├── historias_usuario.md    # Histórias de usuário (HUs)
  │   ├── rastreabilidade.md      # Matriz de rastreabilidade
- │   ├── modelo_dados.jpg        # Diagrama de Entidade-Relacionamento (DER)
  │   │
  │   ├── 📁 CasodeUso/            # Documentação e modelagem de Casos de Uso
  │   │   ├── casos_uso.md          # Especificação detalhada dos Casos de Uso
- │   │   ├── Plant_Caso_de_Uso.md  # Código-fonte (PlantUML) do Diagrama CU
+ │   │   ├── Plant_Caso_de_Uso.plantuml  # Código-fonte (PlantUML) do Diagrama CU
  │   │   └── Caso_De_Uso_UML.png   # Diagrama de Casos de Uso (Visual)
+ │   │
+ │   ├── 📁 ModeloDados/            # Documentação e modelagem de Dados
+ │   │   ├── modelo_dados.dbml  # Código-fonte DER
+ │   │   └── modelo_dados.jpg        # Diagrama de Entidade-Relacionamento (DER)
  │   │
  │   └── 📁 DiagramaClasse/       # Modelagem da arquitetura e Classes
  │       ├── BPMN_Escalas_Motoristas.md # Código-fonte (Mermaid/PlantUML) do Diagrama de Classes
  │       └── BPMNClasses.jpg         # Diagrama de Classes (Visual)
+ │
  └──  README.md                   # Este arquivo
 ```
 
