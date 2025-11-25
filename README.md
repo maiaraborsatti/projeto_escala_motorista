@@ -44,13 +44,19 @@ Este projeto segue as boas práticas de Engenharia de Software, incluindo:
  ├── 📁 src/                      # Código da aplicação - Em construção
  │         
  ├── 📁 docs/                     # Documentação completa
- │     ├── requisitos.md         # Documento de requisitos
- │     ├── historias_usuario.md  # Histórias de usuário
- │     ├── casos_uso.md          # Descrição dos casos de uso
- │     ├── rastreabilidade.md    # Matriz de rastreabilidade
- │     ├── bpmn_escala.png       # Fluxo BPMN
- │     └── modelo_dados.png       # DER / Modelo de dados
- │
+ │   ├── requisitos.md           # Documento de requisitos (RFs e RNFs)
+ │   ├── historias_usuario.md    # Histórias de usuário (HUs)
+ │   ├── rastreabilidade.md      # Matriz de rastreabilidade
+ │   ├── modelo_dados.jpg        # Diagrama de Entidade-Relacionamento (DER)
+ │   │
+ │   ├── 📁 CasodeUso/            # Documentação e modelagem de Casos de Uso
+ │   │   ├── casos_uso.md          # Especificação detalhada dos Casos de Uso
+ │   │   ├── Plant_Caso_de_Uso.md  # Código-fonte (PlantUML) do Diagrama CU
+ │   │   └── Caso_De_Uso_UML.png   # Diagrama de Casos de Uso (Visual)
+ │   │
+ │   └── 📁 DiagramaClasse/       # Modelagem da arquitetura e Classes
+ │       ├── BPMN_Escalas_Motoristas.md # Código-fonte (Mermaid/PlantUML) do Diagrama de Classes
+ │       └── BPMNClasses.jpg         # Diagrama de Classes (Visual)
  └──  README.md                   # Este arquivo
 ```
 
@@ -74,7 +80,7 @@ O protótipo apresenta as telas principais:
 Todo o material de Engenharia de Software está disponível na pasta **/docs**:
 
 📌 **Requisitos funcionais e não funcionais**  
-📌 **Histórias de usuário** (formato ágil)  
+📌 **Histórias de usuário**  
 📌 **Casos de uso**  
 📌 **BPMN do fluxo de geração de escala**  
 📌 **Matriz de rastreabilidade**  
@@ -88,6 +94,6 @@ Esses documentos garantem rastreabilidade e clareza sobre o comportamento do sis
 - **Geovana Messias**
 - **Kelvin Adriel**
 - **[Maiara Borsatti](https://github.com/maiaraborsatti)**
-- **Jackson Santos**
+- **[Jackson Santos](https://github.com/jksantosgit)**
 - **[Walter Pereira](https://github.com/WalADs)**
 - **William Silva**
