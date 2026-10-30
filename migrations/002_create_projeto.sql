@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS projeto(
+    projeto_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) UNIQUE KEY NOT NULL,
+    status ENUM('Ativo', 'Inativo') NOT NULL
+)ENGINE = InnoDB, DEFAULT CHARSET = utf8mb4;
