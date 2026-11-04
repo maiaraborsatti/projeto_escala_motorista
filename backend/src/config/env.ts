@@ -1,5 +1,10 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+
+// Localiza o .env na raiz do projeto.
+const caminhoEnv = fileURLToPath(new URL('../../../.env', import.meta.url));
+dotenv.config({ path: caminhoEnv });
 
 const esquemaAmbiente = z.object({
     DB_NAME: z.string().min(1),

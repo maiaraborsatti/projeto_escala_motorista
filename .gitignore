@@ -1,2 +1,48 @@
+# ==========================================
+# GERAL - Todo o projeto
+# ==========================================
+
+# Variáveis de ambiente
 .env
-/node_modules
+.env.*
+!.env.example
+
+# Dependências
+node_modules/
+**/node_modules/
+
+# Arquivos de compilação
+dist/
+**/dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+
+
+# ==========================================
+# FRONTEND - React + TypeScript + Vite
+# ==========================================
+
+# Arquivos locais do Vite
+*.local
+dist-ssr/
+
+
+# ==========================================
+# BACKEND - Node.js + TypeScript
+# ==========================================
+
+# Arquivos de cobertura dos testes
+coverage/
