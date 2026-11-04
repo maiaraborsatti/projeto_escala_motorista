@@ -92,14 +92,16 @@ rota-360/
 3. Abra o arquivo `.env` gerado e configure as variáveis de ambiente e credenciais de acesso conforme necessário:
    ```env
    # Banco de dados
-   DB_ROOT_PASSWORD=sua_senha_root
-   DB_NAME=escala360
-   DB_USER=escala_user
-   DB_PASSWORD=sua_senha_usuario
+   DB_ROOT_PASSWORD=
+   DB_NAME=rota360
+   DB_USER=rota360_user
+   DB_PASSWORD=
    DB_HOST=127.0.0.1
    DB_PORT=3306
+   DB_TIMEZONE=America/Sao_Paulo
 
-   # Portas dos Serviços
+   # Portas dos serviços
+   DB_PUBLISHED_PORT=3306
    API_PORT=3000
    FRONTEND_PORT=5173
    ```
