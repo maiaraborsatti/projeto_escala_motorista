@@ -1,103 +1,218 @@
-# 🚗 Sistema de Gerenciamento de Escala de Motoristas
+<p align="center">
+  <img src="./frontend/public/logo.png" alt="Rota 360 Logo" width="220"/>
+</p>
 
-Bem-vindo ao repositório do **Sistema de Gerenciamento de Escalas de Motoristas**, desenvolvido como projeto acadêmico.
+<p align="center">
+  <h1 align="center">ROTA 360</h1>
+  <p align="center"><b>Gestão Inteligente de Motoristas e Jornadas</b></p>
+</p>
 
-Este sistema busca digitalizar, organizar e automatizar o planejamento de escalas de motoristas, veículos e rotas, substituindo processos manuais por uma solução moderna, responsiva e com recursos avançados como geração automática de escalas, controle de acesso e relatórios.
-
----
-
-## 📌 Índice
-- [🚗 Sistema de Gerenciamento de Escala de Motoristas](#-sistema-de-gerenciamento-de-escala-de-motoristas)
-  - [📌 Índice](#-índice)
-  - [🎯 Objetivo do Projeto](#-objetivo-do-projeto)
-  - [🖥 Tecnologias Utilizadas](#-tecnologias-utilizadas)
-  - [📁 Estrutura do Repositório](#-estrutura-do-repositório)
-  - [🎨 Protótipo no Figma](#-protótipo-no-figma)
-  - [📄 Documentação Completa (docs)](#-documentação-completa-docs)
-  - [👥 Equipe](#-equipe)
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-blue" alt="TypeScript">
+  <img src="https://img.shields.io/badge/React-blue" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-24-green" alt="Node.js">
+  <img src="https://img.shields.io/badge/Docker-enabled-blue" alt="Docker">
+</p>
 
 ---
 
-## 🎯 Objetivo do Projeto
-O sistema foi desenvolvido com foco em:
-- Automatizar o planejamento de **escalas diárias e semanais**.
-- Organizar cadastros de **motoristas**, **veículos**, **rotas** e **projetos**.
-- Evitar conflitos como: CNH vencida, férias, repetição de rota e indisponibilidade.
-- Criar uma solução moderna baseada em **SPA** (Single Page Application).
-- Permitir geração de **relatórios PDF/XLSX** e manter **logs de auditoria**.
+## 🚀 Sobre o Projeto
 
-Este projeto segue as boas práticas de Engenharia de Software, incluindo:
-- Engenharia de Requisitos
-- Prototipação (Figma)
-- Planejamento Ágil (Scrum / Kanban)
+O **Rota 360** é uma solução web desenvolvida para otimizar e automatizar o planejamento de escalas de motoristas voltados a testes de rodagem de veículos. 
+
+A plataforma centraliza o gerenciamento de frota, rotas, cadastros de colaboradores e controle rigoroso de conformidade (como validade de CNH e períodos de férias), eliminando processos manuais, reduzindo falhas operacionais e garantindo rastreabilidade através de auditoria e relatórios completos.
 
 ---
 
-## 🖥 Tecnologias Utilizadas
-- **Em construção**
+## 🛠️ Tecnologias Utilizadas
+
+### **Frontend**
+- **React** com **TypeScript**
+- **Vite** (Build tool e servidor de desenvolvimento)
+
+### **Backend**
+- **Node.js** & **Express** com **TypeScript**
+- **MySQL 8** (Banco de dados relacional)
+
+### **Infraestrutura e Ferramentas**
+- **Docker & Docker Compose** (Containerização e orquestração de ambiente)
+- **Git & GitHub** (Controle de versão)
 
 ---
 
 ## 📁 Estrutura do Repositório
-```
-📁 projeto_escala_motorista
- ├── 📁 src/                      # Código da aplicação - Em construção
- │         
- ├── 📁 docs/                     # Documentação completa
- │   ├── requisitos.md           # Documento de requisitos (RFs e RNFs)
- │   ├── historias_usuario.md    # Histórias de usuário (HUs)
- │   ├── rastreabilidade.md      # Matriz de rastreabilidade
- │   │
- │   ├── 📁 CasodeUso/            # Documentação e modelagem de Casos de Uso
- │   │   ├── casos_uso.md          # Especificação detalhada dos Casos de Uso
- │   │   ├── Plant_Caso_de_Uso.plantuml  # Código-fonte (PlantUML) do Diagrama CU
- │   │   └── Caso_De_Uso_UML.png   # Diagrama de Casos de Uso (Visual)
- │   │
- │   ├── 📁 ModeloDados/            # Documentação e modelagem de Dados
- │   │   ├── modelo_dados.dbml  # Código-fonte DER
- │   │   └── modelo_dados.jpg        # Diagrama de Entidade-Relacionamento (DER)
- │   │
- │   └── 📁 DiagramaClasse/       # Modelagem da arquitetura e Classes
- │       ├── BPMN_Escalas_Motoristas.md # Código-fonte (Mermaid/PlantUML) do Diagrama de Classes
- │       └── BPMNClasses.jpg         # Diagrama de Classes (Visual)
- │
- └──  README.md                   # Este arquivo
+
+```text
+rota-360/
+│
+├── 📁 backend/
+│   ├── 📁 migrations/       # Migrações do banco de dados
+│   ├── 📁 scripts/          # Scripts auxiliares e automações
+│   ├── 📁 src/              # Código-fonte da API
+│   ├── Dockerfile
+│   └── package.json
+│
+├── 📁 frontend/
+│   ├── 📁 public/           # Ativos estáticos (incluindo logo.png)
+│   ├── 📁 src/              # Código-fonte da interface web
+│   ├── Dockerfile
+│   └── package.json
+│
+├── 📁 docs/                 # Documentação técnica e de engenharia
+├── .env.example             # Template de variáveis de ambiente
+├── .gitignore
+├── docker-compose.yml
+└── README.md
 ```
 
 ---
 
-## 🎨 Protótipo no Figma
-🔗 **[Link do protótipo](https://www.figma.com/proto/FXp8h9jkp1max36O4aaHNM/Sem-t%C3%ADtulo?node-id=0-1&t=qb9VZSymm1uwYe3J-1)**
-O protótipo apresenta as telas principais:
-- Login
-- Tela inicial
-- Motoristas
-- Rotas
-- Veículos
-- Escalas
-- Relatórios
-- Logs
+## ⚙️ Pré-requisitos
+
+- **Git**
+- **Node.js 24** e npm (execução local).
+- **MySQL 8** (execução local sem Docker).
+- **Docker Desktop** e Docker Compose (execução via containers).
+  
+---
+
+## ⚙️ Configuração do Ambiente
+
+1. Clone o repositório para o seu ambiente local:
+   ```bash
+   git clone https://github.com/maiaraborsatti/projeto_escala_motorista.git
+   cd projeto_escala_motorista
+   ```
+
+2. Na raiz do projeto, crie o seu arquivo `.env` utilizando o template de exemplo:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Abra o arquivo `.env` gerado e configure as variáveis de ambiente e credenciais de acesso conforme necessário:
+   ```env
+   # Banco de dados
+   DB_ROOT_PASSWORD=sua_senha_root
+   DB_NAME=escala360
+   DB_USER=escala_user
+   DB_PASSWORD=sua_senha_usuario
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+
+   # Portas dos Serviços
+   API_PORT=3000
+   FRONTEND_PORT=5173
+   ```
 
 ---
 
-## 📄 Documentação Completa (docs)
-Todo o material de Engenharia de Software está disponível na pasta **/docs**:
+## 🐳 Execução via Docker (Recomendado)
 
-📌 **Requisitos funcionais e não funcionais**  
-📌 **Histórias de usuário**  
-📌 **Casos de uso**  
-📌 **BPMN do fluxo de geração de escala**  
-📌 **Matriz de rastreabilidade**  
-📌 **Modelo de dados**  
+O uso do Docker Compose unifica o ecossistema da aplicação (Banco de dados, Backend e Frontend) de forma isolada e sem conflitos de dependências locais.
 
-Esses documentos garantem rastreabilidade e clareza sobre o comportamento do sistema.
+1. **Subir os serviços em segundo plano:**
+   ```bash
+   docker compose up --build -d
+   ```
+
+2. **Verificar os containers em execução:**
+   ```bash
+   docker compose ps
+   ```
+
+3. **Monitorar logs da aplicação:**
+   * Visualizar logs gerais:
+     ```bash
+     docker compose logs -f
+     ```
+   * Visualizar logs de um serviço específico:
+     ```bash
+     docker compose logs -f backend
+     docker compose logs -f frontend
+     ```
+
+4. **Executar as migrações do banco de dados:**
+   ```bash
+   docker compose exec backend npm run migrate
+   ```
+
+5. **Endereços de Acesso:**
+   * **Frontend:** `http://localhost:5173`
+   * **Backend API:** `http://localhost:3000`
+   * **MySQL:** `localhost:3306`
+
+6. **Encerrar os serviços:**
+   * Parar os containers mantendo os dados salvos:
+     ```bash
+     docker compose down
+     ```
+   * Parar e apagar completamente os volumes de dados:
+     ```bash
+     docker compose down -v
+     ```
+
+---
+
+## 💻 Execução Local (Sem Docker)
+
+Se preferir rodar a aplicação diretamente no sistema operacional, utilize o MySQL instalado em sua máquina local ou inicie apenas o banco via Docker (`docker compose up -d db`).
+
+1. **Configurar e rodar o Backend:**
+   ```bash
+   cd backend
+   npm ci
+   npm run migrate
+   npm run dev
+   ```
+
+2. **Configurar e rodar o Frontend (em outro terminal):**
+   ```bash
+   cd frontend
+   npm ci
+   npm run dev
+   ```
+
+3. Acesse a aplicação no navegador em: `http://localhost:5173`
+
+---
+
+## 💡 Comandos Úteis
+
+### **Backend** *(Executar dentro da pasta `/backend`)*
+| Comando | Descrição |
+| :--- | :--- |
+| `npm run dev` | Inicia o servidor backend em modo de desenvolvimento |
+| `npm run build` | Compila o projeto TypeScript para produção |
+| `npm run typecheck` | Valida a tipagem estática do TypeScript |
+| `npm run migrate` | Executa as migrações estruturais no banco de dados |
+
+### **Frontend** *(Executar dentro da pasta `/frontend`)*
+| Comando | Descrição |
+| :--- | :--- |
+| `npm run dev` | Inicia o ambiente de desenvolvimento Vite |
+| `npm run build` | Gera o build otimizado para produção |
+| `npm run lint` | Analisa a qualidade estática do código |
+
+---
+
+## 📄 Documentação
+
+A documentação detalhada de modelagem de dados, diagramas de arquitetura, casos de uso e especificações funcionais encontra-se centralizada na pasta **`/docs`** do repositório.
 
 ---
 
 ## 👥 Equipe
-- **Geovana Messias**
-- **Kelvin Adriel**
+
+Desenvolvido com foco em excelência em engenharia de software por:
+- **[Alvaro Giovanni](https://github.com/alvaroqzdev)**
+- **[Geovana Messias](https://github.com/gehlopesmessias)**
+- **[Kelvin Adriel](https://github.com/KelvinAdriel)**
 - **[Maiara Borsatti](https://github.com/maiaraborsatti)**
-- **[Jackson Santos](https://github.com/jksantosgit)**
 - **[Walter Pereira](https://github.com/WalADs)**
-- **William Silva**
+- **[William Silva](https://github.com/williamsilvajj)**
+
+---
+
+<p align="center">
+  <b>Rota 360</b> — Organização, controle e eficiência na gestão de jornadas.
+</p>
