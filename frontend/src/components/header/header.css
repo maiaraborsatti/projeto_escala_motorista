@@ -1,0 +1,46 @@
+.header {
+  height: 125px;
+  background: #2c4054;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 35px;
+  color: white;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-left h1 {
+  font-size: 23px;
+}
+
+.back-button {
+  background: none;
+  display: flex;
+  gap: 8px;
+  border: none;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  background: none;
+  border: none;
+  color: white;
+
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
