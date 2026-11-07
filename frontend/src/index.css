@@ -1,4 +1,14 @@
 /* index.css */
+:root {
+  --cor-fundo: #d9d9d9;
+  --cor-azul-escuro: #2c3e50;
+  --cor-azul: #3b82f6;
+  --cor-azul-botao: #0047ab;
+  --cor-verde: #1fa855;
+  --cor-vermelho: #e0242b;
+  --sombra-card: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
 *,
 *::before,
 *::after {
@@ -8,4 +18,21 @@
 body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--cor-fundo);
+  color: #111;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* estrutura comum às páginas internas */
+.pagina {
+  min-height: 100vh;
+}
+
+.pagina__conteudo {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
 }

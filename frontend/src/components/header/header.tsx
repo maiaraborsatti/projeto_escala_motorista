@@ -1,5 +1,6 @@
 
 import { ArrowLeft, LogOut } from "lucide-react";
+import "./header.css";
 
 
 interface HeaderProps {
