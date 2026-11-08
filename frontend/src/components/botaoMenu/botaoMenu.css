@@ -1,0 +1,46 @@
+/* botaoMenu.css */
+.botao-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 96px;
+  padding: 0 24px;
+  border-radius: 12px;
+  background-color: var(--cor-azul);
+  box-shadow: var(--sombra-card);
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.25s ease;
+}
+
+.botao-menu__texto {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+/* hover roxo (as outras telas usam verde) */
+.botao-menu:hover {
+  background-color: var(--cor-roxo);
+}
+
+.botao-menu:focus-visible {
+  outline: 3px solid var(--cor-azul-escuro);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .botao-menu {
+    min-height: 72px;
+    padding: 0 18px;
+  }
+
+  .botao-menu__texto {
+    font-size: 24px;
+  }
+
+  .botao-menu svg {
+    width: 28px;
+    height: 28px;
+  }
+}

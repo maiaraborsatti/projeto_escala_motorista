@@ -1,0 +1,29 @@
+/* menu.css */
+.menu-conteudo {
+  display: flex;
+  justify-content: center;
+  padding-top: 48px;
+}
+
+.menu-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 466px;
+  padding: 60px 70px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra-card);
+}
+
+@media (max-width: 640px) {
+  .menu-conteudo {
+    padding-top: 24px;
+  }
+
+  .menu-cartao {
+    gap: 16px;
+    padding: 24px 16px;
+  }
+}
