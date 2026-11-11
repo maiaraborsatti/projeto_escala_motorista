@@ -8,11 +8,16 @@ import Veiculos from '../pages/Veiculos/Veiculos';
 import Menu from '../pages/Menu/Menu';
 import Rotas from '../pages/Rotas/Rotas';
 import Escalas from '../pages/Escalas/Escalas';
+import EscalasMotorista from '../pages/Escalas/EscalasMotorista';
 
 const router = createBrowserRouter([
 
   { path: '/escalas', element: 
   <Escalas /> },
+
+  { path: '/minhas-escalas', element: 
+  <EscalasMotorista />,
+},
 
   { path: '/rotas', element:
   <Rotas /> },

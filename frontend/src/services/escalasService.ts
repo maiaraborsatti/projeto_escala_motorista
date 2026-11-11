@@ -51,6 +51,21 @@ export async function listarEscalas(): Promise<Escala[]> {
   //            return dados.map(mapearEscala);
 }
 
+
+
+export async function listarEscalasPorMotorista(
+  motoristaChapa: string
+): Promise<Escala[]> {
+  // Busca as escalas disponíveis
+  const escalas = await listarEscalas();
+
+  // Retorna somente as escalas do motorista informado
+  return escalas.filter(
+    (escala) => escala.motoristaChapa === motoristaChapa
+  );
+}
+
+
 export async function excluirEscala(escalaId: number): Promise<void> {
   await esperar(ATRASO_MS);
   // COM A API: await api.delete(`/escalas/${escalaId}`); (⚠️ o api.ts atual só tem get)
