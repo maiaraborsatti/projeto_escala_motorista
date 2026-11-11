@@ -2,11 +2,13 @@ CREATE TABLE IF NOT EXISTS usuario(
     usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(100) UNIQUE KEY NOT NULL,
     senha_hash VARCHAR(255) NOT NULL,
-    nome VARCHAR(100),
+    nome VARCHAR(100) NOT NULL,
     perfil_id INT NOT NULL,
-    motorista_chapa VARCHAR(20) NOT NULL,
+    motorista_chapa VARCHAR(20) NULL,
+    tentativas_login INT UNSIGNED NOT NULL DEFAULT 0,
+    bloqueado BOOLEAN NOT NULL DEFAULT FALSE,
 
     FOREIGN KEY (perfil_id) REFERENCES perfil(perfil_id),
     FOREIGN KEY (motorista_chapa) REFERENCES motorista(chapa)
-    
-)ENGINE = InnoDB, DEFAULT CHARSET = utf8mb4;
+
+) ENGINE = InnoDB, DEFAULT CHARSET = utf8mb4;
