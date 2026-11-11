@@ -39,6 +39,6 @@ export const ambiente = {
     },
     auth: {
         jwtSecret: ambienteValido.JWT_SECRET,
-        jwtExpiresIn: '1h',
+        jwtExpiresIn: '1h' as const,
     }
 };

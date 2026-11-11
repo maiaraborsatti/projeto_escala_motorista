@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import authRoutes from '../modules/auth/auth.routes.js';
 
 const router = Router();
 
@@ -9,5 +10,8 @@ router.get('/health', (_req, res) => {
         message: 'API Rota 360 funcionando'
     });
 });
+
+// Rotas de autenticação.
+router.use('/auth', authRoutes);
 
 export default router;
