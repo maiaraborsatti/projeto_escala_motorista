@@ -12,7 +12,8 @@ const esquemaAmbiente = z.object({
     DB_PASSWORD: z.string().min(1),
     DB_TIMEZONE: z.string().min(1),
     DB_HOST: z.string().min(1),
-    DB_PORT: z.coerce.number().int().positive()
+    DB_PORT: z.coerce.number().int().positive(),
+    JWT_SECRET: z.string().min(32),
 });
 
 const resultadoAmbiente = esquemaAmbiente.safeParse(process.env);
@@ -35,5 +36,9 @@ export const ambiente = {
         fusoHorario: ambienteValido.DB_TIMEZONE,
         host: ambienteValido.DB_HOST,
         porta: ambienteValido.DB_PORT,
+    },
+    auth: {
+        jwtSecret: ambienteValido.JWT_SECRET,
+        jwtExpiresIn: '1h' as const,
     }
 };
