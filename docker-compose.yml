@@ -41,6 +41,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_TIMEZONE: ${DB_TIMEZONE:-America/Sao_Paulo}
       API_PORT: 3000
+      JWT_SECRET: ${JWT_SECRET:?Defina JWT_SECRET no arquivo .env}
     ports:
       - "${API_PORT:-3000}:3000"
     volumes:
@@ -49,7 +50,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: npm run dev
+    command: sh -c "npm ci && npm run dev"
 
   # ==========================================
   # FRONTEND - React + TypeScript + Vite
@@ -69,7 +70,7 @@ services:
       API_PROXY_TARGET: http://backend:3000
     depends_on:
       - backend
-    command: npm run dev -- --host 0.0.0.0
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
 
 # ==========================================
 # VOLUMES
