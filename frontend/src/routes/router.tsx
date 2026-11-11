@@ -4,9 +4,12 @@ import Login from '../pages/Login/Login';
 import Home from '../pages/Home/Home';
 import NotFound from '../pages/NotFound/NotFound';
 import Motoristas from '../pages/Motoristas/Motoristas';
+import CadastroMotorista from '../pages/Motoristas/CadastroMotorista';
 import Veiculos from '../pages/Veiculos/Veiculos';
+import CadastroVeiculo from '../pages/Veiculos/CadastroVeiculo';
 import Menu from '../pages/Menu/Menu';
 import Rotas from '../pages/Rotas/Rotas';
+import CadastroRotas from '../pages/Rotas/CadastroRotas';
 import Escalas from '../pages/Escalas/Escalas';
 import EscalasMotorista from '../pages/Escalas/EscalasMotorista';
 
@@ -22,6 +25,9 @@ const router = createBrowserRouter([
   { path: '/rotas', element:
   <Rotas /> },
 
+  { path: '/cadrotas', element:
+  <CadastroRotas /> },
+
   { path: '/menu', element:
   <Menu /> },
 
@@ -29,8 +35,16 @@ const router = createBrowserRouter([
     element: <Veiculos /> 
   },
 
+  { path: '/formveiculos',
+    element: <CadastroVeiculo /> 
+  },
+
   { path: '/motoristas',
     element: <Motoristas /> 
+  },
+
+  { path: '/cadmotoristas',
+    element: <CadastroMotorista /> 
   },
 
   {
