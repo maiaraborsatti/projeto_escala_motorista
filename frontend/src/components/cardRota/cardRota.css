@@ -1,0 +1,136 @@
+/* cardRota.css */
+.card-rota {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra-card);
+}
+
+/* ícone do mapa em destaque */
+.card-rota__icone {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 16px;
+  background: #e8eef7;
+  color: var(--cor-azul-escuro);
+}
+
+.card-rota__info {
+  flex: 1;
+  min-width: 0;
+  font-size: 17px;
+  line-height: 1.3;
+}
+
+.card-rota__info p {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.card-rota__nome {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-azul);
+  overflow-wrap: anywhere;
+}
+
+.card-rota__lado {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.card-rota__status {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-style: italic;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card-rota__status--ativa {
+  background: #d3f0e1;
+  color: #1b9a6b;
+}
+
+.card-rota__status--inativa {
+  background: #f4d3d3;
+  color: var(--cor-vermelho);
+}
+
+.card-rota__acoes {
+  display: flex;
+  gap: 12px;
+}
+
+.card-rota__botao {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card-rota__botao--editar {
+  color: var(--cor-azul-botao);
+}
+.card-rota__botao--editar:hover {
+  background: rgba(0, 71, 171, 0.1);
+}
+
+.card-rota__botao--excluir {
+  color: var(--cor-vermelho);
+}
+.card-rota__botao--excluir:hover {
+  background: rgba(224, 36, 43, 0.1);
+}
+
+/* celular: status e botões descem para uma linha própria */
+@media (max-width: 640px) {
+  .card-rota {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .card-rota__icone {
+    width: 88px;
+    height: 88px;
+    border-radius: 12px;
+  }
+
+  .card-rota__icone svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .card-rota__info {
+    flex: 1 1 140px;
+    font-size: 15px;
+  }
+
+  .card-rota__nome {
+    font-size: 20px;
+  }
+
+  .card-rota__lado {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+  }
+}
