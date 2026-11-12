@@ -43,3 +43,17 @@ export async function atualizarProjeto(id: number, dados: DadosAtualizacaoProjet
         return { id, nome, status };
     });
 }
+
+export async function excluirProjeto(id: number): Promise<void> {
+    return executarEmTransacao(async (conexao) => {
+        const projeto = await projetosRepository.buscarPorId(id, conexao, true);
+        if (!projeto) {
+            throw new Error("Projeto não encontrado.");
+        }
+
+        // TODO: quando existir a tabela de escalas, impedir a exclusão se o projeto
+        // já esteve em alguma escala (jaEstiveEmEscala no repository + throw aqui).
+
+        await projetosRepository.excluir(id, conexao);
+    });
+}

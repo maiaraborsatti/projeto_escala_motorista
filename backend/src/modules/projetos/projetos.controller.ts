@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { criarProjeto, listarProjetos, atualizarProjeto } from "./projetos.service.js";
+import { criarProjeto, listarProjetos, atualizarProjeto, excluirProjeto } from "./projetos.service.js";
 import type { StatusProjeto, DadosAtualizacaoProjeto } from "./projetos.tipos.js";
 
 const STATUS_VALIDOS: StatusProjeto[] = ["Ativo", "Inativo"];
@@ -75,6 +75,22 @@ export async function atualizarProjetoController(req: Request, res: Response, ne
 
         const projeto = await atualizarProjeto(id, dados);
         res.status(200).json(projeto);
+    } catch (erro) {
+        next(erro);
+    }
+}
+
+export async function excluirProjetoController(req: Request, res: Response, next: NextFunction) {
+    try {
+        const id = Number(req.params.id);
+
+        if (!Number.isInteger(id) || id <= 0) {
+            res.status(400).json({ erro: "O 'id' deve ser um número inteiro positivo." });
+            return;
+        }
+
+        await excluirProjeto(id);
+        res.status(204).send();
     } catch (erro) {
         next(erro);
     }

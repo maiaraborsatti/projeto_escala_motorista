@@ -63,3 +63,7 @@ export async function atualizar(
         [nome, status, id]
     );
 }
+
+export async function excluir(id: number, db: Conexao = pool): Promise<void> {
+    await db.execute<ResultSetHeader>("DELETE FROM projeto WHERE id = ?", [id]);
+}
