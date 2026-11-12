@@ -10,27 +10,39 @@ export class ApiError extends Error {
   }
 }
 
-async function request<T>(endpoint: string): Promise<T> {
+async function request<T>(
+  endpoint: string,
+  options: RequestInit = {},
+): Promise<T> {
   let response: Response;
 
   try {
-    response = await fetch(`${API_BASE_URL}${endpoint}`);
+    response = await fetch(`${API_BASE_URL}${endpoint}`, options);
   } catch {
     throw new ApiError(
       'Não foi possível conectar ao servidor. Verifique sua conexão.',
     );
   }
 
+  const data = await response.json();
+
   if (!response.ok) {
     throw new ApiError(
-      `Erro na comunicação com o servidor: ${response.status}`,
+      data.message || `Erro na comunicação com o servidor: ${response.status}`,
       response.status,
     );
   }
 
-  return response.json() as Promise<T>;
+  return data as T;
 }
 
 export const api = {
   get: <T>(endpoint: string) => request<T>(endpoint),
+
+  post: <T>(endpoint: string, body: unknown) =>
+    request<T>(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    }),
 };
