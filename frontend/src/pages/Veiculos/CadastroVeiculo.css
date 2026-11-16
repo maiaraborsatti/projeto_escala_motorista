@@ -1,0 +1,126 @@
+
+.cadastro-veiculo {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cadastro-veiculo__introducao {
+  margin-bottom: 28px;
+}
+
+.cadastro-veiculo__introducao h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  color: var(--cor-azul-escuro);
+}
+
+.cadastro-veiculo__introducao p {
+  margin: 0;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.cadastro-veiculo__formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra-card);
+}
+
+.cadastro-veiculo__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cadastro-veiculo__campo label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-azul-escuro);
+}
+
+.cadastro-veiculo__campo input,
+.cadastro-veiculo__campo select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cadastro-veiculo__campo input::placeholder {
+  color: #9ca3af;
+}
+
+.cadastro-veiculo__campo input:focus,
+.cadastro-veiculo__campo select:focus {
+  border-color: var(--cor-azul);
+  box-shadow: 0 0 0 2px rgba(0, 71, 171, 0.1);
+}
+
+.cadastro-veiculo__acoes {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.cadastro-veiculo__botao {
+  min-height: 46px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cadastro-veiculo__botao--cancelar {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cadastro-veiculo__botao--cancelar:hover {
+  background: #d1d5db;
+}
+
+.cadastro-veiculo__botao--cadastrar {
+  background: var(--cor-azul);
+  color: #fff;
+}
+
+.cadastro-veiculo__botao--cadastrar:hover {
+  background: var(--cor-verde);
+}
+
+@media (max-width: 640px) {
+  .cadastro-veiculo__formulario {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .cadastro-veiculo__acoes {
+    flex-direction: column-reverse;
+  }
+
+  .cadastro-veiculo__botao {
+    width: 100%;
+  }
+
+  .cadastro-veiculo__introducao h2 {
+    font-size: 21px;
+  }
+}

@@ -1,0 +1,109 @@
+
+.card-escala-motorista {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 28px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra-card);
+}
+
+.card-escala-motorista__turno {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cor-azul-escuro);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.card-escala-motorista__pecas {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-escala-motorista__peca {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.card-escala-motorista__icone {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 12px;
+  background: #e8eef7;
+  color: var(--cor-azul-escuro);
+}
+
+.card-escala-motorista__texto {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.card-escala-motorista__rotulo {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.card-escala-motorista__principal {
+  font-size: 17px;
+  color: var(--cor-azul);
+  overflow-wrap: anywhere;
+}
+
+.card-escala-motorista__secundario {
+  font-size: 14px;
+  color: #333;
+}
+
+.card-escala-motorista__ligacao {
+  flex-shrink: 0;
+  color: #9aa5b1;
+}
+
+@media (max-width: 1100px) {
+  .card-escala-motorista__pecas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-escala-motorista__peca {
+    flex: 0 0 auto;
+  }
+
+  .card-escala-motorista__ligacao {
+    align-self: center;
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-escala-motorista {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .card-escala-motorista__pecas {
+    flex: 1 1 200px;
+  }
+}

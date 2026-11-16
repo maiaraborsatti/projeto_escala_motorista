@@ -1,0 +1,43 @@
+/* paginacao.css */
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.paginacao__botao {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--sombra-card);
+  color: var(--cor-azul-escuro);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.paginacao__botao:hover:not(:disabled) {
+  background: #eef1f4;
+}
+
+.paginacao__botao:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.paginacao__info {
+  font-size: 15px;
+  color: #333;
+}
+
+/* celular: só as setas, para caber na tela */
+@media (max-width: 480px) {
+  .paginacao__texto {
+    display: none;
+  }
+}

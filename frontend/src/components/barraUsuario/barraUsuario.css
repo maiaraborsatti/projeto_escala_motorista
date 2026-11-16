@@ -1,0 +1,59 @@
+/* barraUsuario.css */
+.barra-usuario {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 127px;
+  padding: 0 32px;
+  background-color: var(--cor-azul-escuro);
+  color: #fff;
+}
+
+.barra-usuario__perfil {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.barra-usuario__saudacao {
+  margin: 0;
+  font-size: 20px;
+}
+
+.barra-usuario__logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.barra-usuario__logout:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 640px) {
+  .barra-usuario {
+    min-height: 72px;
+    padding: 0 12px;
+  }
+
+  .barra-usuario__perfil svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .barra-usuario__saudacao {
+    font-size: 16px;
+  }
+}

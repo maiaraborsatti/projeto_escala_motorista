@@ -1,0 +1,125 @@
+/* cardMotorista.css */
+.card-motorista {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 36px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra-card);
+}
+
+.card-motorista__avatar {
+  flex-shrink: 0;
+  color: var(--cor-azul-escuro);
+}
+
+.card-motorista__info {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.card-motorista__info p {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.card-motorista__nome {
+  margin: 0 0 2px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-azul);
+}
+
+.card-motorista__validade--vencida {
+  color: var(--cor-vermelho);
+}
+
+.card-motorista__lado {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.card-motorista__status {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-style: italic;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card-motorista__status--disponivel {
+  background: #d3f0e1;
+  color: #1b9a6b;
+}
+
+.card-motorista__status--indisponivel {
+  background: #f4d3d3;
+  color: var(--cor-vermelho);
+}
+
+.card-motorista__acoes {
+  display: flex;
+  gap: 12px;
+}
+
+/* 44px é um bom tamanho mínimo para toque no celular */
+.card-motorista__botao {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card-motorista__botao--editar {
+  color: var(--cor-azul-botao);
+}
+.card-motorista__botao--editar:hover {
+  background: rgba(0, 71, 171, 0.1);
+}
+
+.card-motorista__botao--excluir {
+  color: var(--cor-vermelho);
+}
+.card-motorista__botao--excluir:hover {
+  background: rgba(224, 36, 43, 0.1);
+}
+
+/* celular: status e botões descem para uma linha própria */
+@media (max-width: 640px) {
+  .card-motorista {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .card-motorista__avatar {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-motorista__lado {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .motoristas-erro {
+  margin: 0 0 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #f4d3d3;
+  color: #b91c22;
+}
+}

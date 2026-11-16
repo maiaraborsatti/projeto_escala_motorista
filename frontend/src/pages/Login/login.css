@@ -1,0 +1,89 @@
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../../assets/login-bg.jpg") center / cover no-repeat;
+}
+
+/* camada escura sobre a foto */
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 50, 0.7);
+}
+
+.login-card {
+  position: relative; /* fica acima da camada escura */
+  width: 100%;
+  max-width: 488px;
+  padding: 120px 44px 40px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #2c3e50 60%, #0a2a4d 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  color: #d9d9d9;
+}
+
+.login-icon {
+  margin-bottom: 32px;
+}
+
+.login-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.login-field label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.login-field input {
+  height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #8c8c8c;
+  font-size: 18px;
+}
+
+.login-options {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* links azuis com sublinhado no hover */
+.login-link {
+  color: #5ce1e6;
+  font-style: italic;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.login-register {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.2;
+}
