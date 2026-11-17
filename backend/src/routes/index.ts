@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import projetosRoute from '../modules/projetos/projetos.routes.js'
 import authRoutes from '../modules/auth/auth.routes.js';
 
 const router = Router();
@@ -13,5 +14,7 @@ router.get('/health', (_req, res) => {
 
 // Rotas de autenticação.
 router.use('/auth', authRoutes);
+//Rotas de Projetos
+router.use("/projetos", projetosRoute);
 
 export default router;
