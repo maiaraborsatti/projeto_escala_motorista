@@ -1,5 +1,9 @@
 import { Router } from 'express';
+<<<<<<< HEAD
 import projetosRoute from '../modules/projetos/projetos.routes.js'
+=======
+import authRoutes from '../modules/auth/auth.routes.js';
+>>>>>>> master
 
 const router = Router();
 
@@ -11,7 +15,8 @@ router.get('/health', (_req, res) => {
     });
 });
 
+// Rotas de autenticação.
+router.use('/auth', authRoutes);
 router.use("/projetos", projetosRoute);
-
 
 export default router;

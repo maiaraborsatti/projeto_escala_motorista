@@ -53,7 +53,7 @@ rota-360/
 │   └── package.json
 │
 ├── 📁 frontend/
-│   ├── 📁 public/           # Ativos estáticos (incluindo logo.png)
+│   ├── 📁 public/           # Ativos estáticos
 │   ├── 📁 src/              # Código-fonte da interface web
 │   ├── Dockerfile
 │   └── package.json
@@ -69,10 +69,9 @@ rota-360/
 
 ## ⚙️ Pré-requisitos
 
-- **Git**
-- **Node.js 24** e npm (execução local).
+- **Node.js 24** e **npm** (execução local).
 - **MySQL 8** (execução local sem Docker).
-- **Docker Desktop** e Docker Compose (execução via containers).
+- **Docker Desktop** e **Docker Compose** (execução via containers).
   
 ---
 
@@ -89,7 +88,15 @@ rota-360/
    cp .env.example .env
    ```
 
-3. Abra o arquivo `.env` gerado e configure as variáveis de ambiente e credenciais de acesso conforme necessário:
+3. Gere uma chave secreta para a autenticação JWT.
+
+   **Opção recomendada — utilizando Node.js (macOS, Linux e Windows):**
+   ```bash
+   node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"
+   ```
+   Copie o valor gerado e preencha a variável JWT_SECRET no arquivo .env.
+
+4. Abra o arquivo `.env` gerado e configure as variáveis de ambiente e credenciais de acesso conforme necessário:
    ```env
    # Banco de dados
    DB_ROOT_PASSWORD=
@@ -99,12 +106,17 @@ rota-360/
    DB_HOST=127.0.0.1
    DB_PORT=3306
    DB_TIMEZONE=America/Sao_Paulo
+   JWT_SECRET=
 
    # Portas dos serviços
    DB_PUBLISHED_PORT=3306
    API_PORT=3000
    FRONTEND_PORT=5173
    ```
+**Importante:**
+- Configure as senhas do banco de dados antes de iniciar a aplicação.
+- O JWT_SECRET deve receber a chave gerada no passo anterior.
+- Não compartilhe sua chave JWT nem envie o arquivo .env para o Git.
 
 ---
 
@@ -152,7 +164,7 @@ O uso do Docker Compose unifica o ecossistema da aplicação (Banco de dados, Ba
      ```bash
      docker compose down -v
      ```
-
+   * **Atenção:** o segundo comando remove também os dados persistidos do banco. 
 ---
 
 ## 💻 Execução Local (Sem Docker)
@@ -187,6 +199,9 @@ Se preferir rodar a aplicação diretamente no sistema operacional, utilize o My
 | `npm run build` | Compila o projeto TypeScript para produção |
 | `npm run typecheck` | Valida a tipagem estática do TypeScript |
 | `npm run migrate` | Executa as migrações estruturais no banco de dados |
+| `npm run db:reset` | Apaga as tabelas e recria o banco a partir das migrations |
+
+**Atenção:** npm run db:reset é um comando destrutivo. Ele apaga as tabelas existentes e seus dados. Utilize somente em ambiente de desenvolvimento e quando realmente precisar recriar o banco.
 
 ### **Frontend** *(Executar dentro da pasta `/frontend`)*
 | Comando | Descrição |

@@ -1,0 +1,123 @@
+
+.cadastro-rota {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cadastro-rota__introducao {
+  margin-bottom: 28px;
+}
+
+.cadastro-rota__introducao h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  color: var(--cor-azul-escuro);
+}
+
+.cadastro-rota__introducao p {
+  margin: 0;
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.cadastro-rota__formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: var(--sombra-card);
+}
+
+.cadastro-rota__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cadastro-rota__campo label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-azul-escuro);
+}
+
+.cadastro-rota__campo input,
+.cadastro-rota__campo select {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cadastro-rota__campo input::placeholder {
+  color: #9ca3af;
+}
+
+.cadastro-rota__campo input:focus,
+.cadastro-rota__campo select:focus {
+  border-color: var(--cor-azul);
+  box-shadow: 0 0 0 2px rgba(0, 71, 171, 0.1);
+}
+
+.cadastro-rota__acoes {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.cadastro-rota__botao.button-main {
+  min-height: 46px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cadastro-rota__botao--cancelar.button-main {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.cadastro-rota__botao--cancelar.button-main:hover {
+  background: #d1d5db;
+}
+
+.cadastro-rota__botao--cadastrar.button-main {
+  background: var(--cor-azul);
+  color: #fff;
+}
+
+.cadastro-rota__botao--cadastrar.button-main:hover {
+  background: var(--cor-verde);
+}
+
+@media (max-width: 640px) {
+  .cadastro-rota__formulario {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .cadastro-rota__acoes {
+    flex-direction: column-reverse;
+  }
+
+  .cadastro-rota__botao {
+    width: 100%;
+  }
+
+  .cadastro-rota__introducao h2 {
+    font-size: 21px;
+  }
+}

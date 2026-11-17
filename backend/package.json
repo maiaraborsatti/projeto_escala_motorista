@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "migrate": "tsx scripts/db.ts"
+    "migrate": "tsx scripts/db.ts",
+    "db:reset": "tsx scripts/db-reset.ts"
   },
   "keywords": [],
   "author": "",
