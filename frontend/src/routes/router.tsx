@@ -13,7 +13,7 @@ import CadastroRotas from '../pages/Rotas/CadastroRotas';
 import Escalas from '../pages/Escalas/Escalas';
 import EscalasMotorista from '../pages/Escalas/EscalasMotorista';
 import Relatorios from '../pages/Relatorios/Relatorios';
-import Logs from '../pages/Logs/Logs';
+import Logs from '../pages/AudLogs/Logs';
 
 const router = createBrowserRouter([
 
@@ -66,11 +66,11 @@ const router = createBrowserRouter([
     element: <NotFound />,
   },
   {
-    path: '/logs',
+    path: '/relatorios',
     element: <Relatorios />,
   },
   {
-    path: '/relatorios',
+    path: '/logs',
     element: <Logs />,
   },
 ]);
