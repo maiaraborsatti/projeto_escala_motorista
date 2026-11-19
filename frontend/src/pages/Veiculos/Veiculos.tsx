@@ -8,11 +8,14 @@ import { ModalConfirmacao } from "../../components/modalConfirmacao/modalConfirm
 import { Paginacao } from "../../components/paginacao/paginacao";
 import { excluirVeiculo, listarVeiculos } from "../../services/veiculosService";
 import type { Veiculo } from "../../types/veiculo";
+import { useNavigate } from "react-router";
 import "./veiculos.css";
 
 const ITENS_POR_PAGINA = 5;
 
+
 export default function Veiculos() {
+  const navigate = useNavigate();
   const [veiculos, setVeiculos] = useState<Veiculo[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState<string | null>(null);
@@ -104,7 +107,7 @@ export default function Veiculos() {
             totalPaginas={totalPaginas}
             onMudarPagina={setPagina}
           />
-          <ButtonMain className="veiculos-add">
+          <ButtonMain className="veiculos-add"onClick={() => navigate("/cadveiculos")}>
             Adicionar <Plus size={22} />
           </ButtonMain>
         </div>

@@ -6,7 +6,7 @@ import "./cadastroMotorista.css";
 export default function CadastroMotorista() {
   return (
     <div className="pagina">
-      <Header title="Cadastro de motorista" />
+      <Header title="Cadastro de motorista" rotaVoltar="/motoristas"/>
 
       <main className="pagina__conteudo cadastro-motorista">
         <div className="cadastro-motorista__introducao">

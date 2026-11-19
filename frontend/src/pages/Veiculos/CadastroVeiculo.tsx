@@ -6,7 +6,7 @@ import "./cadastroVeiculo.css";
 export default function CadastroVeiculo() {
   return (
     <div className="pagina">
-      <Header title="Cadastro de veículo" />
+      <Header title="Cadastro de veículo" rotaVoltar="/veiculos"  />
 
       <main className="pagina__conteudo cadastro-veiculo">
         <div className="cadastro-veiculo__introducao">

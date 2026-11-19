@@ -95,10 +95,10 @@ export default function Login() {
             <a href="#" className="login-link">Esqueci a senha</a>
           </div>
 
-          {erro && <p role="alert">{erro}</p>}
+          {erro && <p role="alert" className="login-error">{erro}</p>}
 
           <ButtonMain type="submit" disabled={carregando}>
-            {carregando ? "Entrando..." : "Entrar"}
+            {carregando ? "Entrando..." : "ENTRAR"}
           </ButtonMain>
         </form>
 

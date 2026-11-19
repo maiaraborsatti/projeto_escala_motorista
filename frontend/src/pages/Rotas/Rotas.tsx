@@ -8,11 +8,14 @@ import { ModalConfirmacao } from "../../components/modalConfirmacao/modalConfirm
 import { Paginacao } from "../../components/paginacao/paginacao";
 import { excluirRota, listarRotas } from "../../services/rotasService";
 import type { Rota } from "../../types/rota";
+import { useNavigate } from "react-router";
 import "./rotas.css";
 
 const ITENS_POR_PAGINA = 5;
 
+
 export default function Rotas() {
+  const navigate = useNavigate();
   const [rotas, setRotas] = useState<Rota[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState<string | null>(null);
@@ -105,7 +108,7 @@ export default function Rotas() {
             totalPaginas={totalPaginas}
             onMudarPagina={setPagina}
           />
-          <ButtonMain className="rotas-add">
+          <ButtonMain className="rotas-add"onClick={() => navigate("/cadrotas")}>
             Adicionar <Plus size={22} />
           </ButtonMain>
         </div>
