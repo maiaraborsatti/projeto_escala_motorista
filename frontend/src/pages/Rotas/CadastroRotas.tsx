@@ -3,10 +3,11 @@ import Header from "../../components/header/header";
 import { ButtonMain } from "../../components/buttonMain/buttonMain";
 import "./CadastroRotas.css";
 
+
 export default function CadastroRotas() {
   return (
     <div className="pagina">
-      <Header title="Cadastro de rota" />
+      <Header title="Cadastro de rota" rotaVoltar="/rotas"/>
 
       <main className="pagina__conteudo cadastro-rota">
         <div className="cadastro-rota__introducao">

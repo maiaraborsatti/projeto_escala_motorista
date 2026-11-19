@@ -12,6 +12,8 @@ import Rotas from '../pages/Rotas/Rotas';
 import CadastroRotas from '../pages/Rotas/CadastroRotas';
 import Escalas from '../pages/Escalas/Escalas';
 import EscalasMotorista from '../pages/Escalas/EscalasMotorista';
+import Relatorios from '../pages/Relatorios/Relatorios';
+import Logs from '../pages/Logs/Logs';
 
 const router = createBrowserRouter([
 
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
     element: <Veiculos /> 
   },
 
-  { path: '/formveiculos',
+  { path: '/cadveiculos',
     element: <CadastroVeiculo /> 
   },
 
@@ -62,6 +64,14 @@ const router = createBrowserRouter([
   {
     path: '*',
     element: <NotFound />,
+  },
+  {
+    path: '/logs',
+    element: <Relatorios />,
+  },
+  {
+    path: '/relatorios',
+    element: <Logs />,
   },
 ]);
 

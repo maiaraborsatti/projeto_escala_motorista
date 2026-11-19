@@ -8,17 +8,20 @@ import { ModalConfirmacao } from "../../components/modalConfirmacao/modalConfirm
 import { Paginacao } from "../../components/paginacao/paginacao";
 import { excluirMotorista, listarMotoristas } from "../../services/motoristasService";
 import type { Motorista } from "../../types/motorista";
+import { useNavigate } from "react-router";
 import "./motoristas.css";
 
 const ITENS_POR_PAGINA = 5;
 
 export default function Motoristas() {
+  const navigate = useNavigate();
   const [motoristas, setMotoristas] = useState<Motorista[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState<string | null>(null);
   const [busca, setBusca] = useState("");
   const [pagina, setPagina] = useState(1);
   const [motoristaParaExcluir, setMotoristaParaExcluir] = useState<Motorista | null>(null);
+  
 
   useEffect(() => {
     async function carregar() {
@@ -102,7 +105,7 @@ export default function Motoristas() {
             totalPaginas={totalPaginas}
             onMudarPagina={setPagina}
           />
-          <ButtonMain className="motoristas-add">
+          <ButtonMain className="motoristas-add"onClick={() => navigate("/cadmotoristas")}>
             Adicionar <Plus size={22} />
           </ButtonMain>
         </div>

@@ -29,6 +29,13 @@
   color: #d9d9d9;
 }
 
+.login-card form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .login-icon {
   margin-bottom: 32px;
 }
@@ -86,4 +93,11 @@
   text-align: center;
   font-size: 15px;
   line-height: 1.2;
+}
+.login-error {
+  width: 100%;
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 15px;
+  color: #ff8a8a;
 }
